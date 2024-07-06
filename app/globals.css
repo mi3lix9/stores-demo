@@ -27,6 +27,9 @@ body {
 }
 
 @layer utilities {
+  * {
+    font-family: Rubik;
+  }
   .text-balance {
     text-wrap: balance;
   }
