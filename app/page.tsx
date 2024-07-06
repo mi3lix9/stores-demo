@@ -1,3 +1,5 @@
+import { Store } from "./components/store";
+
 export default function Home() {
   const imageUrl = "https://logowik.com/content/uploads/images/firebase.jpg";
   const stores = [
@@ -11,18 +13,14 @@ export default function Home() {
     { id: 2, name: "قصر مايتي", imageUrl },
   ];
   return (
-    <main className="bg-gray-950 h-screen">
-      <div className="bg-slate-900 w-full h-11"></div>
+    <main className="bg-gray-950 h-screen flex flex-col gap-2" dir="rtl">
+      <div className="bg-slate-900 w-full h-14 flex items-center gap-2 px-4">
+        <img src={imageUrl} className="aspect-square h-10 rounded-full" />
+        <div>ديمو المطاعم</div>
+      </div>
       <div className="container mx-auto px-4 flex gap-2 select-none flex-wrap">
         {stores.map((s) => (
-          <a
-            key={s.id}
-            className="flex p-2 bg-slate-900 rounded-md w-full items-center gap-3"
-            href={"stores/" + s.id}
-          >
-            <img src={s.imageUrl} className="aspect-square h-10 rounded-full" />
-            <div>{s.name}</div>
-          </a>
+          <Store key={s.id} id={s.id} imageUrl={s.imageUrl} name={s.name} />
         ))}
       </div>
     </main>
