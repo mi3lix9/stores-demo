@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+const imageUrl = "https://logowik.com/content/uploads/images/firebase.jpg";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -24,7 +25,16 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={inter.className}>{children}</body>
+
+      <body className={inter.className}>
+        <div className="bg-gray-950 h-screen flex flex-col gap-2" dir="rtl">
+          <div className="bg-slate-900 w-full h-14 flex items-center gap-2 px-4">
+            <img src={imageUrl} className="aspect-square h-10 rounded-full" />
+            <div>ديمو المطاعم</div>
+          </div>
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
